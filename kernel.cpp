@@ -258,12 +258,16 @@ double calculator::WExpression::function(std::string function_name)
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for acos function");
+        if (abs(args[0])>1)
+            throw std::logic_error("bad argument for acos");
         return std::acos(args[0]);
     }
     else if (function_name == "asin")
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for asin function");
+        if (abs(args[0])>1)
+            throw std::logic_error("bad argument for asin");
         return std::asin(args[0]);
     }
     else if (function_name == "atan")
@@ -288,18 +292,24 @@ double calculator::WExpression::function(std::string function_name)
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for log function");
+        if ((args[0])<0)
+            throw std::logic_error("bad argument for log");
         return std::log(args[0]);
     }
     else if (function_name == "log10")
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for log10 function");
+        if ((args[0])<0)
+            throw std::logic_error("bad argument for log10");
         return std::log10(args[0]);
     }
     else if (function_name == "sqrt")
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for sqrt function");
+        if ((args[0])<0)
+            throw std::logic_error("bad argument for sqrt");
         return std::sqrt(args[0]);
     }
     else if (function_name == "abs")
