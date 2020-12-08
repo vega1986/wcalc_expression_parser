@@ -2,15 +2,17 @@
 #include <sstream>
 #include <iostream>
 #include <queue>
-#include "kernel.h"
+// #include "kernel.h"
+#include "ctexpression/ctkernel.h"
 
 
-
+// #define use_string_interpreter 0
 
 
 int main(int argc, char *argv[])
 {
     using namespace std;
+    using namespace compile_time_expression_structure;
 
 #if 0
 
@@ -70,6 +72,9 @@ int main(int argc, char *argv[])
     }
 #endif
 
+
+#if 0
+
     while (cin)
     {
         char sym {0};
@@ -99,5 +104,41 @@ int main(int argc, char *argv[])
             cout << " = " << "...failed - " << e.what() << endl;
         }
     }
+    
+#else
+
+    while (cin)
+    {
+        char sym {0};
+        cin >> sym;
+        while (cin && sym==command_stop_expression) cin >> sym;
+        if (sym == command_quit_instruction) break;
+        else cin.unget();
+        string str;
+        while (cin)
+        {
+            cin >> sym;
+            if (sym == command_stop_expression) break;
+            str += sym;
+        }
+        istringstream ist{str};
+        try
+        {
+            CTExpression cte(ist);
+            cte.set_variable(variableId::x, 3.1);
+            cte.set_variable(variableId::y, 4.2);
+            cte.set_variable(variableId::r, 6.3);
+            
+            double val {cte.value()};
+            cout << " = " << val << endl;
+        }
+        catch(exception& e)
+        {
+            cout << " = " << "...failed: '" << e.what() << "'" << endl;
+        }
+    }
+
+#endif
+    
     return EXIT_SUCCESS;
 }
