@@ -1,6 +1,18 @@
-
+#include <boost/math/constants/constants.hpp>
 #include "servicecontainer.h"
 
+
+double compile_time_expression_structure::serviceContainer::degrees(double rad)
+{
+    constexpr double pi = boost::math::constants::pi<double>();
+    return rad * 180.0 / pi;
+}
+
+double compile_time_expression_structure::serviceContainer::radians(double deg)
+{
+    constexpr double pi = boost::math::constants::pi<double>();
+    return deg * pi / 180.0;
+}
 
 // const std::map<compile_time_expression_structure::constantId, double>
 // compile_time_expression_structure::serviceContainer::global_constants

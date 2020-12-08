@@ -17,7 +17,8 @@ namespace compile_time_expression_structure {
 
 
     public:
-
+        static double degrees(double rad);
+        static double radians(double deg);
         Token pop()
         {
             return ts.pop();

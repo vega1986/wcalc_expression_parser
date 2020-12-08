@@ -143,77 +143,77 @@ double compile_time_expression_structure::primaryFunction::value() const
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for floor function");
-        retult = std::floor(args[0]->value());
+        result = std::floor(args[0]->value());
         break;
     }
     case functionId::ceil:
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for ceil function");
-        retult = std::ceil(args[0]->value());
+        result = std::ceil(args[0]->value());
         break;
     }
     case functionId::trunc:
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for trunc function");
-        retult = std::trunc(args[0]->value());
+        result = std::trunc(args[0]->value());
         break;
     }
     case functionId::sinh:
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for sinh function");
-        retult = std::sinh(args[0]->value());
+        result = std::sinh(args[0]->value());
         break;
     }    
     case functionId::cosh:
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for cosh function");
-        retult = std::cosh(args[0]->value());
+        result = std::cosh(args[0]->value());
         break;
     }    
     case functionId::tanh:
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for tanh function");
-        retult = std::tanh(args[0]->value());
+        result = std::tanh(args[0]->value());
         break;
     }    
     case functionId::asinh:
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for asinh function");
-        retult = std::asinh(args[0]->value());
+        result = std::asinh(args[0]->value());
         break;
     }
     case functionId::acosh:
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for acosh function");
-        retult = std::acosh(args[0]->value());
+        result = std::acosh(args[0]->value());
         break;
     }
     case functionId::atanh:
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for atanh function");
-        retult = std::atanh(args[0]->value());
+        result = std::atanh(args[0]->value());
         break;
     }
     case functionId::degrees:
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for degrees function");
-        retult = std::degrees(args[0]->value());
+        result = degrees(args[0]->value());
         break;
     }
     case functionId::radians:
     {
         if (args.size() != 1)
             throw std::logic_error("1 args for radians function");
-        retult = std::radians(args[0]->value());
+        result = radians(args[0]->value());
         break;
     }
     default:
